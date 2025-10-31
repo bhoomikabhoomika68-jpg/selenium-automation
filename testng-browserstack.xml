@@ -51,13 +51,13 @@
         </classes>
     </test>
     
-    <!-- Test 4: iPhone 14 Pro - iOS 16 -->
-    <test name="iPhone 14 Pro - iOS 16" preserve-order="true">
+    <!-- Test 4: iPhone 14 - iOS 16 -->
+    <test name="iPhone 14 - iOS 16" preserve-order="true">
         <parameter name="browser" value=""/>
         <parameter name="browserVersion" value=""/>
         <parameter name="os" value=""/>
         <parameter name="osVersion" value="16"/>
-        <parameter name="deviceName" value="iPhone 14 Pro"/>
+        <parameter name="deviceName" value="iPhone 14"/>
         <classes>
             <class name="com.elpais.tests.ElPaisBrowserStackTest"/>
         </classes>
@@ -76,4 +76,3 @@
     </test>
     
 </suite>
-

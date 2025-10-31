@@ -241,6 +241,70 @@ echo $BROWSERSTACK_ACCESS_KEY
 - BrowserStack tests aggregate word frequency across all threads
 - Mock translation is used when no API keys are configured
 
+## 📤 Submission Instructions
+
+### For BrowserStack Assessment Submission
+
+This project is ready for submission! Follow these steps:
+
+#### 1. ✅ GitHub Repository (Completed)
+Your code is in a public GitHub repository.
+
+#### 2. 🔗 BrowserStack Automate Public Link
+
+**To create a public BrowserStack build link:**
+
+1. Run tests on BrowserStack:
+   ```bash
+   ./run-browserstack-tests.sh
+   ```
+
+2. Go to [BrowserStack Automate Dashboard](https://automate.browserstack.com/dashboard)
+
+3. Find your build: "El Pais Opinion Section Tests"
+
+4. Click **"Share"** button → **"Make Public"** → Copy the public URL
+
+5. Verify the link works in an incognito browser window
+
+**Your public link will look like:**
+```
+https://automate.browserstack.com/dashboard/v2/public-build/XXXXX/YYYYY/ZZZZZ
+```
+
+#### 3. 📸 Screenshot Upload to Google Drive
+
+**To upload and share your screenshot:**
+
+1. Take a screenshot of your BrowserStack build running (dashboard view)
+
+2. Upload to [Google Drive](https://drive.google.com)
+
+3. Right-click → **"Share"** → Set to **"Anyone with the link"** (Viewer)
+
+4. Copy the shareable link
+
+**Your Google Drive link will look like:**
+```
+https://drive.google.com/file/d/XXXXXXXXXXXXXXXXXXXXX/view?usp=sharing
+```
+
+#### 📋 Final Submission Format
+
+```
+GitHub Repository: [YOUR_GITHUB_REPO_URL]
+
+BrowserStack Automate Build (Public): 
+[YOUR_BROWSERSTACK_PUBLIC_URL]
+
+Screenshot of the build running:
+[YOUR_GOOGLE_DRIVE_SCREENSHOT_URL]
+```
+
+**📖 Detailed Instructions:** See [SUBMISSION_GUIDE.md](./SUBMISSION_GUIDE.md) for step-by-step instructions with screenshots and troubleshooting.
+
+---
+
 ## 📄 License
 
 This project is for educational and assessment purposes.

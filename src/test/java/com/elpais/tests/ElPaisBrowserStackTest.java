@@ -77,6 +77,7 @@ public class ElPaisBrowserStackTest {
         try {
             System.out.println("Step 1: Navigating and verifying language");
             currentHomePage.navigateToHomePage();
+            Thread.sleep(3000); // Extra wait for mobile
             currentHomePage.acceptCookies();
             
             boolean isSpanish = currentHomePage.isPageInSpanish();
@@ -134,9 +135,24 @@ public class ElPaisBrowserStackTest {
     }
     
     @AfterMethod
-    public void tearDown() {
+    public void tearDown(org.testng.ITestResult result) {
         WebDriver currentDriver = driver.get();
         if (currentDriver != null) {
+            try {
+                // Mark test status on BrowserStack
+                if (currentDriver instanceof org.openqa.selenium.remote.RemoteWebDriver) {
+                    org.openqa.selenium.JavascriptExecutor js = (org.openqa.selenium.JavascriptExecutor) currentDriver;
+                    if (result.getStatus() == org.testng.ITestResult.SUCCESS) {
+                        js.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"passed\", \"reason\": \"All test steps completed successfully\"}}");
+                        System.out.println("✓ Test marked as PASSED on BrowserStack");
+                    } else {
+                        js.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"" + result.getThrowable().getMessage() + "\"}}");
+                        System.out.println("✗ Test marked as FAILED on BrowserStack");
+                    }
+                }
+            } catch (Exception e) {
+                // Ignore if not BrowserStack
+            }
             currentDriver.quit();
             System.out.println("Session closed\n");
         }

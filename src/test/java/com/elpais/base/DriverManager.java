@@ -12,7 +12,7 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.MutableCapabilities;
 import java.net.URI;
-import java.net.URL;
+
 import java.net.MalformedURLException;
 import java.util.HashMap;
 import java.util.Map;
@@ -85,8 +85,8 @@ public class DriverManager {
         Map<String, Object> bstackOptions = new HashMap<>();
         bstackOptions.put("os", os);
         bstackOptions.put("osVersion", osVersion);
-        bstackOptions.put("projectName", "El Pais Scraper");
-        bstackOptions.put("buildName", "Opinion Section Test Build");
+        bstackOptions.put("projectName", "El Pais Opinion Scraper");
+        bstackOptions.put("buildName", "El Pais Opinion Section Tests - " + System.currentTimeMillis());
         bstackOptions.put("sessionName", browser + " " + browserVersion + " on " + os + " " + osVersion);
         bstackOptions.put("local", "false");
         bstackOptions.put("seleniumVersion", "4.15.0");
@@ -112,8 +112,8 @@ public class DriverManager {
         bstackOptions.put("deviceName", deviceName);
         bstackOptions.put("osVersion", osVersion);
         bstackOptions.put("realMobile", "true");
-        bstackOptions.put("projectName", "El Pais Scraper");
-        bstackOptions.put("buildName", "Opinion Section Test Build - Mobile");
+        bstackOptions.put("projectName", "El Pais Opinion Scraper");
+        bstackOptions.put("buildName", "El Pais Opinion Section Tests - " + System.currentTimeMillis());
         bstackOptions.put("sessionName", deviceName + " - " + osVersion);
         bstackOptions.put("local", "false");
         bstackOptions.put("debug", "true");

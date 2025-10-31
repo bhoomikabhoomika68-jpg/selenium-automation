@@ -32,7 +32,7 @@ public class OpinionPage extends BasePage {
         List<ArticleData> articles = new ArrayList<>();
         
         try {
-            Thread.sleep(3000); // Wait for page load
+            Thread.sleep(5000); // Wait longer for mobile page load
             List<WebElement> articleList = waitForElements(articleElements);
             
             System.out.println("Found " + articleList.size() + " article elements");

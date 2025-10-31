@@ -32,8 +32,14 @@
         <version>3.0.0</version>
         <configuration>
           <suiteXmlFiles>
-            <suiteXmlFile>testng.xml</suiteXmlFile>
+            <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
           </suiteXmlFiles>
+          <properties>
+            <property>
+              <name>usedefaultlisteners</name>
+              <value>false</value>
+            </property>
+          </properties>
         </configuration>
       </plugin>
     </plugins>

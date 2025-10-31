@@ -17,7 +17,7 @@ public class BasePage {
     
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     }
     
     /**
@@ -72,12 +72,34 @@ public class BasePage {
      */
     public void acceptCookies() {
         try {
-            By cookieButton = By.cssSelector("button[id*='didomi'], button.didomi-components-button--primary, button#didomi-notice-agree-button");
-            WebElement acceptButton = wait.until(ExpectedConditions.elementToBeClickable(cookieButton));
-            acceptButton.click();
-            Thread.sleep(1000); // Wait for cookie banner to disappear
-        } catch (Exception e) {
+            // Wait a bit for page to load
+            Thread.sleep(2000);
+            
+            // Try multiple cookie button selectors
+            String[] cookieSelectors = {
+                "button#didomi-notice-agree-button",
+                "button[id*='didomi']",
+                "button.didomi-components-button--primary",
+                "button[class*='accept']",
+                "button[class*='consent']"
+            };
+            
+            for (String selector : cookieSelectors) {
+                try {
+                    By cookieButton = By.cssSelector(selector);
+                    WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(5));
+                    WebElement acceptButton = shortWait.until(ExpectedConditions.elementToBeClickable(cookieButton));
+                    acceptButton.click();
+                    System.out.println("✓ Cookie banner accepted");
+                    Thread.sleep(2000); // Wait for banner to disappear
+                    return;
+                } catch (Exception e) {
+                    // Try next selector
+                }
+            }
             System.out.println("No cookie banner found or already accepted");
+        } catch (Exception e) {
+            System.out.println("Cookie handling: " + e.getMessage());
         }
     }
 }
