@@ -1,0 +1,121 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.seleniumdemo</groupId>
+  <artifactId>ElPaisScraper</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>ElPaisScraper</name>
+  
+  <properties>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+    <maven.compiler.release>21</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
+        <configuration>
+          <release>21</release>
+        </configuration>
+      </plugin>
+      
+      <!-- Maven Surefire Plugin for running tests -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <!-- Selenium -->
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>4.15.0</version>
+    </dependency>
+    
+    <!-- WebDriver Manager -->
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>5.6.2</version>
+    </dependency>
+    
+    <!-- Apache Commons IO (required by WebDriverManager) -->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.15.1</version>
+    </dependency>
+    
+    <!-- TestNG for testing -->
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>7.8.0</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- BrowserStack Local -->
+    <dependency>
+      <groupId>com.browserstack</groupId>
+      <artifactId>browserstack-local-java</artifactId>
+      <version>1.0.6</version>
+    </dependency>
+    
+    <!-- JSON Processing -->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.10.1</version>
+    </dependency>
+    
+    <!-- JSoup for HTML parsing -->
+    <dependency>
+      <groupId>org.jsoup</groupId>
+      <artifactId>jsoup</artifactId>
+      <version>1.16.1</version>
+    </dependency>
+    
+    <!-- Google Cloud Translate API -->
+    <dependency>
+      <groupId>com.google.cloud</groupId>
+      <artifactId>google-cloud-translate</artifactId>
+      <version>2.20.0</version>
+    </dependency>
+    
+    <!-- Apache HttpClient for API calls -->
+    <dependency>
+      <groupId>org.apache.httpcomponents.client5</groupId>
+      <artifactId>httpclient5</artifactId>
+      <version>5.2.1</version>
+    </dependency>
+    
+    <!-- SLF4J Logging -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>2.0.9</version>
+    </dependency>
+      
+    <!-- BrowserStack Java SDK -->
+    <dependency>
+      <groupId>com.browserstack</groupId>
+      <artifactId>browserstack-java-sdk</artifactId>
+      <version>LATEST</version>
+    </dependency>
+  </dependencies>
+</project>
